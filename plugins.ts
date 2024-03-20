@@ -17,6 +17,7 @@ export default function () {
       .use(metas())
       .use(favicon())
       .use(basePath())
+      .mergeKey("extra_head", "stringArray")
       .use(transformImages());
 
     site.data("icon", (slug?: string) => {

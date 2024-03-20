@@ -1,0 +1,43 @@
+layout: layouts/base.vto
+
+header:
+  title: Lume Land
+  description: I make static websites.
+  avatar: /avatar.jpg
+
+metas:
+  title: =header.title
+  description: =header.description
+  image: =header.avatar
+  generator: true
+
+links:
+  - text: Website
+    href: https://lume.land
+
+  - type: x
+    text: "@misteroom"
+    href: https://twitter.com/misteroom
+
+  - type: mastodon
+    text: "@lume@fosstodon.org"
+    href: https://fosstodon.org/@lume
+
+  - type: github
+    text: "GitHub"
+    href: https://github.com/lumeland/
+
+  - type: spotify
+    text: "Spotify"
+    href: https://open.spotify.com/user/oscarotero
+
+  - type: discord
+    text: "Discord"
+    href: https://discord.gg/YbTmpACHWB
+
+  - type: opencollective
+    text: "Open Collective"
+    href: https://opencollective.com/lume
+
+footer: |
+  Powered by [Lume](https://lume.land)

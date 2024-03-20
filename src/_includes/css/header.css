@@ -1,0 +1,36 @@
+.header {
+  font: var(--font-body);
+  margin-bottom: min(5vh, 100px);
+  color: var(--color-text);
+
+  p {
+    margin: 0;
+    text-wrap: balance;
+
+    + p {
+      margin-top: .5em;
+    }
+  }
+}
+
+.header-avatar {
+  border-radius: 50%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center center;
+  width: 200px;
+  max-width: 50vw;
+}
+
+.header-title {
+  font: var(--font-title);
+  letter-spacing: var(--font-title-spacing);
+  margin: .5em 0 0;
+  color: var(--color-base);
+}
+
+.header-theme {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+}

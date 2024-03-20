@@ -1,0 +1,60 @@
+<!doctype html>
+
+<html lang="{{ it.lang }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ header.title }}</title>
+
+    <meta name="supported-color-schemes" content="light dark">
+    <meta name="theme-color" content="hsl(220, 20%, 100%)" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="hsl(220, 20%, 10%)" media="(prefers-color-scheme: dark)">
+    
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="canonical" href="{{ url |> url(true) }}">
+
+    {{ it.extra_head?.join("\n") }}
+  </head>
+  <body>
+    <main>
+      <header class="header">
+        <script>
+          let theme = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+          document.documentElement.dataset.theme = theme;
+          function changeTheme() {
+            theme = theme === "dark" ? "light" : "dark";
+            localStorage.setItem("theme", theme);
+            document.documentElement.dataset.theme = theme;
+          }
+        </script>
+        <button class="button header-theme" onclick="changeTheme()">
+          <span class="icon">◐</span>
+        </button>
+
+        <img class="header-avatar" src="{{ header.avatar }}" alt="Avatar" transform-images="webp avif 200@2">
+        <h1 class="header-title">{{ header.title }}</h1>
+        {{ header.description |> md }}
+      </header>
+
+      <ul class="link-list">
+        {{ for link of links }}
+        {{> let i = icon(link.type) }}
+        <li>
+          <a href="{{ link.href }}" class="button" style="--bg-color:{{ link.hex || `#${i?.hex || "fff" }` }}; --text-color:{{ link.textColor || textColor(i?.hex || "fff") }}">
+            {{ i?.svg }}
+            {{ link.text }}
+          </a>
+        </li>
+        {{ /for }}
+      </ul>
+    </main>
+    {{ if footer }}
+    <footer>
+      {{ footer |> md }}
+    </footer>
+    {{ /if }}
+  </body>
+</html>

@@ -1,0 +1,35 @@
+.link-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  row-gap: 10px;
+
+  .button {
+    display: flex;
+    font: var(--font-body-bold);
+    transition: transform 200ms;
+    border: solid 1px #00000022;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 2px 10px -8px #0009;
+    }
+  }
+  .button:not(.is-primary) {
+    background: var(--bg-color);
+    color: var(--text-color);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+}
+
+[data-theme="dark"] {
+  .link-list .button {
+    border: solid 1px #FFFFFF16;
+  }
+}

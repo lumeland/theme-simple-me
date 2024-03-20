@@ -3,7 +3,7 @@ layout: layouts/base.vto
 header:
   title: Lume Land
   description: I make static websites.
-  avatar: /avatar.jpg
+  avatar: /avatar.webp
 
 metas:
   title: =header.title

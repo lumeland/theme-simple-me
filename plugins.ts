@@ -4,6 +4,7 @@ import transformImages from "lume/plugins/transform_images.ts";
 import picture from "lume/plugins/picture.ts";
 import metas from "lume/plugins/metas.ts";
 import favicon from "lume/plugins/favicon.ts";
+import basePath from "lume/plugins/base_path.ts";
 import * as si from "npm:simple-icons@11.9.0";
 import type { SimpleIcon } from "npm:simple-icons@11.9.0";
 import Color from "https://colorjs.io/dist/color.js";
@@ -16,6 +17,7 @@ export default function () {
     site.use(postcss())
       .use(metas())
       .use(favicon())
+      .use(basePath())
       .use(picture())
       .use(transformImages());
 

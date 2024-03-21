@@ -31,5 +31,5 @@ links:
   - type: opencollective
     text: Open Collective
     href: 'https://opencollective.com/lume'
-footer: "Powered by [Lume](https://lume.land)\r\n"
+footer: "Powered by [Lume](https://lume.land) and [Simply me theme](https://github.com/lumeland/theme-simple-me)\r\n"
 extra_head: ''

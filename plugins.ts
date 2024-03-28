@@ -33,11 +33,5 @@ export default function () {
     });
 
     site.copy([".jpg", ".webp", ".png"]);
-
-    // Basic CSS Design System
-    site.remoteFile(
-      "_includes/css/ds.css",
-      "https://unpkg.com/@lumeland/ds@0.5.1/ds.css",
-    );
   };
 }

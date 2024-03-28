@@ -2,7 +2,7 @@ layout: layouts/base.vto
 header:
   title: Lume Land
   description: I make static websites.
-  avatar: /avatar.webp
+  avatar: /avatar.jpg
 metas:
   title: =header.title
   description: =header.description
@@ -13,9 +13,6 @@ links:
   - text: Website
     href: 'https://lume.land'
     type: ''
-  - type: x
-    text: '@misteroom'
-    href: 'https://twitter.com/misteroom'
   - type: mastodon
     text: '@lume@fosstodon.org'
     href: 'https://fosstodon.org/@lume'

@@ -39,8 +39,23 @@
         {{ header.description |> md }}
       </header>
 
+      {{> const icons = links.filter((link) => link.only_icon) }}
+
+      {{ if icons.length }}
+      <ul class="icon-list">
+        {{ for link of icons }}
+        {{> let i = icon(link.type) }}
+        <li>
+          <a href="{{ link.href }}" class="button" style="--bg-color:{{ link.hex || `#${i?.hex || "fff" }` }}; --text-color:{{ link.textColor || textColor(i?.hex || "fff") }}" title="{{ link.text }}">
+            {{ i?.svg }}
+          </a>
+        </li>
+        {{ /for }}
+      </ul>
+      {{ /if }}
+
       <ul class="link-list">
-        {{ for link of links }}
+        {{ for link of links.filter((link) => !link.only_icon) }}
         {{> let i = icon(link.type) }}
         <li>
           <a href="{{ link.href }}" class="button" style="--bg-color:{{ link.hex || `#${i?.hex || "fff" }` }}; --text-color:{{ link.textColor || textColor(i?.hex || "fff") }}">

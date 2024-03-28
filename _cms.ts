@@ -62,6 +62,7 @@ cms.document(
         },
         "text: text",
         "href: text",
+        "only_icon: checkbox",
       ],
     },
     {

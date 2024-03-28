@@ -32,10 +32,7 @@ export default function () {
       return (onWhite + 0.5) > onBlack ? "white" : "black";
     });
 
-    site.data("transformImages", {
-      resize: [300, 300],
-      format: "webp",
-    });
+    site.copy([".jpg", ".webp", ".png"]);
 
     // Basic CSS Design System
     site.remoteFile(

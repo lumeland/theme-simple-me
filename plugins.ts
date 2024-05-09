@@ -1,12 +1,12 @@
 import "lume/types.ts";
+import Color from "https://colorjs.io/dist/color.js";
+import basePath from "lume/plugins/base_path.ts";
+import favicon from "lume/plugins/favicon.ts";
+import metas from "lume/plugins/metas.ts";
 import postcss from "lume/plugins/postcss.ts";
 import transformImages from "lume/plugins/transform_images.ts";
-import metas from "lume/plugins/metas.ts";
-import favicon from "lume/plugins/favicon.ts";
-import basePath from "lume/plugins/base_path.ts";
 import * as si from "npm:simple-icons@11.9.0";
 import type { SimpleIcon } from "npm:simple-icons@11.9.0";
-import Color from "https://colorjs.io/dist/color.js";
 
 const icons = Object.values(si) as SimpleIcon[];
 

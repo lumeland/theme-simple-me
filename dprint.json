@@ -1,0 +1,20 @@
+{
+  "lineWidth": 120,
+  "typescript": {
+    "functionExpression.spaceBeforeParentheses": true
+  },
+  "malva": {
+    "hexCase": "upper",
+    "omitNumberLeadingZero": true
+  },
+  "markup": {
+    "scriptIndent": true,
+    "styleIndent": true
+  },
+  "plugins": [
+    "https://plugins.dprint.dev/typescript-0.90.5.wasm",
+    "https://plugins.dprint.dev/g-plane/malva-v0.3.0.wasm",
+    "https://plugins.dprint.dev/g-plane/markup_fmt-v0.8.0.wasm",
+    "https://plugins.dprint.dev/json-0.19.2.wasm"
+  ]
+}

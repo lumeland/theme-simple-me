@@ -7,8 +7,8 @@
     "lume": "echo \"import 'lume/cli.ts'\" | deno run -A -",
     "build": "deno task lume",
     "serve": "deno task lume -s",
-    "fmt": "deno run -A npm:dprint fmt",
-    "fmt:check": "deno run -A npm:dprint check"
+    "fmt": "deno run -A npm:dprint@0.45.1 fmt",
+    "fmt:check": "deno run -A npm:dprint@0.45.1 check"
   },
   "compilerOptions": {
     "types": [

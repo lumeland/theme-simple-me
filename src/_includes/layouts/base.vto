@@ -44,15 +44,15 @@
       {{ if icons.length }}
         <ul class="icon-list">
           {{ for link of icons }}
-            {{> let i = icon(link.type) }}
+            {{ set hex = link.type |> simpleicons("hex") }}
             <li>
               <a
                 href="{{ link.href }}"
                 class="button"
-                style='--bg-color:{{ link.hex || `#${i?.hex || "fff" }` }}; --text-color:{{ link.textColor || textColor(i?.hex || "fff") }}'
+                style='--bg-color:{{ link.hex || `#${hex || "fff" }` }}; --text-color:{{ link.textColor || textColor(hex || "fff") }}'
                 title="{{ link.text }}"
               >
-                {{ i?.svg }}
+                {{ link.type |> simpleicons }}
               </a>
             </li>
           {{ /for }}
@@ -61,14 +61,14 @@
 
       <ul class="link-list">
         {{ for link of links.filter((link) => !link.only_icon) }}
-          {{> let i = icon(link.type) }}
+          {{ set hex = link.type |> simpleicons("hex") }}
           <li>
             <a
               href="{{ link.href }}"
               class="button"
-              style='--bg-color:{{ link.hex || `#${i?.hex || "fff" }` }}; --text-color:{{ link.textColor || textColor(i?.hex || "fff") }}'
+              style='--bg-color:{{ link.hex || `#${hex || "fff" }` }}; --text-color:{{ link.textColor || textColor(hex || "fff") }}'
             >
-              {{ i?.svg }}
+              {{ link.type |> simpleicons }}
               {{ link.text }}
             </a>
           </li>

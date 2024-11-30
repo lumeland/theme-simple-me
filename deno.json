@@ -1,14 +1,12 @@
 {
   "imports": {
-    "lume/": "https://deno.land/x/lume@v2.1.2/",
-    "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@0.3.9/"
+    "lume/": "https://deno.land/x/lume@v2.4.2/",
+    "lume/cms/": "https://cdn.jsdelivr.net/gh/lumeland/cms@0.7.3/"
   },
   "tasks": {
     "lume": "echo \"import 'lume/cli.ts'\" | deno run -A -",
     "build": "deno task lume",
-    "serve": "deno task lume -s",
-    "fmt": "deno run -A npm:dprint@0.45.1 fmt",
-    "fmt:check": "deno run -A npm:dprint@0.45.1 check"
+    "serve": "deno task lume -s"
   },
   "compilerOptions": {
     "types": [

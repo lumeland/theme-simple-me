@@ -25,6 +25,6 @@ export default function () {
       return (onWhite + 0.5) > onBlack ? "white" : "black";
     });
 
-    site.copy([".jpg", ".webp", ".png"]);
+    site.add([".css", ".jpg", ".webp", ".png"]);
   };
 }

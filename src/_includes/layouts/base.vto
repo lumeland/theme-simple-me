@@ -15,25 +15,22 @@
     <link rel="canonical" href="{{ url |> url(true) }}">
 
     {{ it.extra_head?.join("\n") }}
+
+    <script>
+      let theme = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light");
+      document.documentElement.dataset.theme = theme;
+      function changeTheme() {
+        theme = theme === "dark" ? "light" : "dark";
+        localStorage.setItem("theme", theme);
+        document.documentElement.dataset.theme = theme;
+      }
+    </script>
   </head>
   <body>
     <main>
       <header class="header">
-        <script>
-          let theme = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light");
-          document.documentElement.dataset.theme = theme;
-          function changeTheme() {
-            theme = theme === "dark" ? "light" : "dark";
-            localStorage.setItem("theme", theme);
-            document.documentElement.dataset.theme = theme;
-          }
-        </script>
-        <button class="button header-theme" onclick="changeTheme()">
-          <span class="icon">◐</span>
-        </button>
-
         <img class="header-avatar" src="{{ header.avatar }}" alt="Avatar" transform-images="webp avif 200@2">
         <h1 class="header-title">{{ header.title }}</h1>
         {{ header.description |> md }}
@@ -41,18 +38,19 @@
 
       {{> const icons = links.filter((link) => link.only_icon) }}
 
-      {{ if icons.length }}
+      {{ if icons |> !empty }}
         <ul class="icon-list">
           {{ for link of icons }}
-            {{ set hex = link.type |> simpleicons("hex") }}
             <li>
               <a
                 href="{{ link.href }}"
                 class="button"
-                style='--bg-color:{{ link.hex || `#${hex || "fff" }` }}; --text-color:{{ link.textColor || textColor(hex || "fff") }}'
+                style='--bg-color:{{ link.bg_color }}; --text-color:{{ link.color }}'
                 title="{{ link.text }}"
               >
-                {{ link.type |> simpleicons }}
+                {{ if link.type }}
+                <img src="{{ link.type |> icon("simpleicons") }}" inline>
+                {{ /if }}
               </a>
             </li>
           {{ /for }}
@@ -61,14 +59,15 @@
 
       <ul class="link-list">
         {{ for link of links.filter((link) => !link.only_icon) }}
-          {{ set hex = link.type |> simpleicons("hex") }}
           <li>
             <a
               href="{{ link.href }}"
               class="button"
-              style='--bg-color:{{ link.hex || `#${hex || "fff" }` }}; --text-color:{{ link.textColor || textColor(hex || "fff") }}'
+              style='--bg-color:{{ link.bg_color }}; --text-color:{{ link.color }}'
             >
-              {{ link.type |> simpleicons }}
+              {{ if link.type }}
+                <img src="{{ link.type |> icon("simpleicons") }}" inline>
+              {{ /if }}
               {{ link.text }}
             </a>
           </li>
@@ -76,9 +75,12 @@
       </ul>
     </main>
     {{ if footer }}
-      <footer>
-        {{ footer |> md }}
-      </footer>
+    <footer class="footer">
+      <button class="button" onclick="changeTheme()">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256"><path d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24M40 128a88.1 88.1 0 0 1 88-88v176a88.1 88.1 0 0 1-88-88"/></svg>
+      </button>
+      {{ footer |> md }}
+    </footer>
     {{ /if }}
   </body>
 </html>

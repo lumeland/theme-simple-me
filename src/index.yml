@@ -8,25 +8,42 @@ metas:
   description: =header.description
   image: =header.avatar
   generator: true
-  twitter: ''
 links:
   - text: Website
-    href: 'https://lume.land'
-    type: ''
-  - type: mastodon
-    text: '@lume@fosstodon.org'
-    href: 'https://fosstodon.org/@lume'
-  - type: github
-    text: GitHub
-    href: 'https://github.com/lumeland/'
-  - type: spotify
-    text: Spotify
-    href: 'https://open.spotify.com/user/oscarotero'
-  - type: discord
-    text: Discord
-    href: 'https://discord.gg/YbTmpACHWB'
-  - type: opencollective
-    text: Open Collective
-    href: 'https://opencollective.com/lume'
-footer: "Powered by [Lume](https://lume.land) & [SimpleMe](https://github.com/lumeland/theme-simple-me) theme"
-extra_head: ''
+    href: "https://lume.land"
+    bg_color: "#ffffff"
+    color: "#000000"
+    only_icon: false
+  - text: "@lume@fosstodon.org"
+    type: mastodon
+    href: "https://fosstodon.org/@lume"
+    bg_color: "#6364ff"
+    color: "#ffffff"
+    only_icon: false
+  - text: GitHub
+    type: github
+    href: "https://github.com/lumeland/"
+    bg_color: "#181717"
+    color: "#ffffff"
+    only_icon: false
+  - text: Spotify
+    type: spotify
+    href: "https://open.spotify.com/user/oscarotero"
+    bg_color: "#1ed760"
+    color: "#000000"
+    only_icon: false
+  - text: Discord
+    type: discord
+    href: "https://discord.gg/YbTmpACHWB"
+    bg_color: "#5865f2"
+    color: "#ffffff"
+    only_icon: false
+  - text: Open Collective
+    type: opencollective
+    href: "https://opencollective.com/lume"
+    bg_color: "#7fadf2"
+    color: "#000000"
+    only_icon: false
+footer: >-
+  Powered by [Lume](https://lume.land) &
+  [SimpleMe](https://github.com/lumeland/theme-simple-me) theme

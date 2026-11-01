@@ -1,4 +1,3 @@
-import { getFiles } from "@lumeland/core/utils/cdn.ts";
 import basePath from "@lumeland/plugin-base-path";
 import favicon from "@lumeland/plugin-favicon";
 import metas from "@lumeland/plugin-metas";
@@ -23,21 +22,14 @@ export default function () {
 
     site.add([".css", ".jpg", ".webp", ".png"]);
 
-    // Remote files
-    const files = ["_includes/**", "*.css"];
-    site.remote("/", import.meta.resolve("./src"), files);
+    // Add remote files
+    site.remote("/", import.meta.resolve("./src"), ["_includes/**"]);
   };
 }
 
-export const setup: Lume.Archetype = async function* () {
-  const specifier = import.meta.resolve("./src");
-  const patterns = ["/avatar.jpg", "/favicon.svg", "/index.yml"];
-
-  for (const [path, url] of await getFiles(specifier, patterns)) {
-    yield {
-      path,
-      overwrite: true,
-      content: new URL(url),
-    };
-  }
+export const setup: Lume.Archetype = function* () {
+  yield {
+    url: import.meta.resolve("./src"),
+    files: ["index.yml", "styles.css", "favicon.svg", "avatar.jpg"],
+  };
 };
